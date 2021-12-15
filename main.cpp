@@ -90,7 +90,7 @@ int main(int argc, char **argv) {
 
     /*SO below activvates the thing, it should be activated already. i got a TRUE */
    /*     send("IACT");
-        send("ACTV hha-0zzr0qhpqhi");
+        send("ACTV <ACTCODE>");
         send("IACT");*/
         const std::string addr("rtspsrc location=rtsp://" + ip + ":8554/thermal latency=300 caps = \"application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96\" ! rtph264depay ! decodebin ! videoconvert ! appsink");
 
@@ -124,8 +124,7 @@ int main(int argc, char **argv) {
                 break;
             }
 /*            cv::Mat image;
-            image = cv::imread("1607399379162.jpg");
-            cv::imshow("Faggot", image);*/
+            image = cv::imread("1607399379162.jpg");*/
             cv::cvtColor(frame, frame,cv::ColorConversionCodes::COLOR_BGR2RGB);
             cv::imshow("Display Image", frame);
             sensor_msgs::ImagePtr msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", frame).toImageMsg();
