@@ -1,2 +1,2 @@
 # workswell
-workswell minimal install - streaming ROS
+workswell minimal connection - streaming ROS
