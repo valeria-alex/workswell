@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
     image_transport::ImageTransport it(n);
     image_transport::Publisher pub = it.advertise("camera/image", 1);
     ros::Rate loop_rate(80);
-    std::cout << "-----FU---" << std::endl;
+    std::cout << "-----Not yet connected---" << std::endl;
 
     if (client) {
         std::cout << "### Sending test message. ###" << std::endl;
