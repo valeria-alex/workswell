@@ -93,7 +93,8 @@ int main(int argc, char **argv) {
         send("ACTV <ACTCODE>");
         send("IACT");*/
         const std::string addr("rtspsrc location=rtsp://" + ip + ":8554/thermal latency=300 caps = \"application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96\" ! rtph264depay ! decodebin ! videoconvert ! appsink");
-
+        //If you are using Nvidia boards (in this example: Nvidia Xavier NX) a different decoder must be employed
+        //const std::string addr("rtspsrc location=rtsp://" + ip + ":8554/thermal latency=300 caps = \"application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96\" ! rtph264depay ! nvv4l2decoder ! nvvidconv ! video/x-raw, format=BGRx ! videoconvert ! video/x-raw, format=BGR ! appsink");
         cv::VideoCapture cap(addr, cv::CAP_GSTREAMER);
         //cv::VideoCapture capv("rtspsrc location=rtsp://" + ip + ":8554/visible latency=3000 caps = \"application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96\" ! rtph264depay ! decodebin ! videoconvert ! appsink", cv::CAP_GSTREAMER);
         /*above, at visual, latency was 3000*/
